@@ -1,0 +1,26 @@
+.company-data{
+    @include padding-top-bottom(30px, 30px);
+
+    &:nth-child(odd){
+        background-color: $section-color-first;
+    }
+
+    .employees{
+        padding: 0 15px 30px;
+    }
+
+    h5{
+        font-weight: 500;
+        color: $main-color-autmes;
+        padding-bottom: 15px;
+    }
+    p{
+        font-size: 1.05em;
+        color: lighten($text-color-gray, 10%);
+        letter-spacing: 0.01em;
+
+        strong{
+            color: $text-color-gray;
+        }
+    }
+}

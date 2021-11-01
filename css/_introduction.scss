@@ -1,0 +1,519 @@
+.uvodni {
+    height: 65vh;
+
+    .leftArrow,
+    .rightArrow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        left: 10px;
+        z-index: 5;
+        transition: background 1s;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, .3);
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, .5);
+
+        &:hover{
+            cursor: pointer;
+            border: none;
+            background-color: $main-color-autmes;
+        }
+
+        .arrow {
+            position: absolute;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            border: 3px solid rgba(255, 255, 255, .9);
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .arrowLeft {
+            transform: rotateZ(-135deg);
+        }
+
+        .arrowRight {
+            transform: rotateZ(45deg);
+        }
+
+        &:hover .arrow{
+            border: 3px solid rgb(255, 255, 255);
+            border-left: none;
+            border-bottom: none;
+        }
+    }
+
+        .rightArrow {
+            left: auto;
+            right: 10px;
+        }
+
+    .imageHolder {
+        position: absolute;
+        width: 100%;
+        height: 65vh;
+        z-index: -2;
+        opacity: 0;
+        overflow: hidden;
+        @include introductory-image;
+
+        .captionText {
+            display: none;
+
+
+        }
+    }
+
+    .captionTextHolder {
+        z-index: 1;
+        overflow: hidden;
+
+        .captionUnderHolder {
+            margin-right: 50px;
+            margin-left: 50px;
+
+            .captionText {
+                margin: 0;
+                padding-right: 30px;
+                padding-left: 30px;
+                position: absolute;
+                top: 50%;
+                left: 70%;
+                margin-right: -50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                max-width: 30%;
+                border-radius: 1px;
+                @include border-full;
+
+                &:nth-child(1){
+                    background-color: rgba(255, 255, 255, .8);
+                }
+
+                h6{
+                    margin-top: 1.5em;
+                    margin-bottom: .6em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    font-size: 1em;
+                    text-align: right;
+                    letter-spacing: .05em;
+                    color: $main-color-autmes;
+                }
+
+                h3 {
+                    text-transform: uppercase;
+                    line-height: 1em;
+                    font-weight: 400;
+                    font-size: 2em;
+                    text-align: right;
+                    letter-spacing: .05em;
+                    color: $main-color-autmes;
+                }
+
+                p {
+                    margin-bottom: 0;
+                    padding: .6em 0 1em 0;
+                    text-align: right;
+                    color: rgb(0, 0, 0);
+                }
+                a{
+                    @include button-more-info;
+                    padding: 5px 10px;
+                    margin-bottom: 1em;
+
+                    &:hover{
+                        text-decoration: none;
+                        background-color: $hover-bg-color;
+                    }
+                }
+
+            }
+        }
+    }
+
+    #dotsContainer {
+        height: 30px;
+        top: 95%;
+        bottom: 0;
+        z-index: 5;
+        box-sizing: border-box;
+        text-align: center;
+
+        .dots {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+            @include border-full(rgb(204, 204, 204));
+            background-color: rgb(187,187,187);
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:hover{
+                background-color: $main-color-autmes;
+            }
+        }
+
+        .active{
+            background-color: $main-color-autmes;
+        }
+
+    }
+}
+
+.moveLeftCurrentSlide {
+    animation-name: moveLeftCurrent;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveLeftCurrent {
+    from {
+        margin-left: 0;
+        opacity: 1;
+    }
+    to {
+        margin-left: -100%;
+        opacity: 1;
+    }
+}
+
+.moveLeftNextSlide {
+    animation-name: moveLeftNext;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveLeftNext {
+    from {
+        margin-left: 100%;
+        opacity: 1;
+    }
+    to {
+        margin-left: 0;
+        opacity: 1;
+    }
+}
+
+.moveRightCurrentSlide {
+    animation-name: moveRightCurrent;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveRightCurrent {
+    from {
+        margin-left: 0;
+        opacity: 1;
+    }
+    to {
+        margin-left: 100%;
+        opacity: 1;
+    }
+}
+
+.moveRightNextSlide {
+    animation-name: moveRightNext;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+ @keyframes moveRightNext {
+    from {
+        margin-left: -100%;
+        opacity: 1;
+    }
+    to {
+        margin-left: 0;
+        opacity: 1;
+    }
+}
+
+.slideTextFromBottom {
+    animation-name: slideFromBottomText;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes slideFromBottomText {
+    from {
+        opacity: 0;
+        margin-left: 40px;
+    }
+    to {
+        opacity: 1;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .leftArrow,
+    .rightArrow {
+        display: none;
+    }
+    .uvodni #dotsContainer .dots {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .uvodni {
+        height: calc(100vh - 80px);
+
+        .imageHolder {
+            height: calc(100vh - 80px);
+        }
+
+        .captionTextHolder .captionUnderHolder .captionText {
+            max-width: 70%;
+            padding: 0 20px 0 20px;
+
+            h6 {
+                font-size: .65em;
+            }
+            h3 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: .8em;
+            }
+        }
+    }
+
+    @keyframes slideFromBottomText {
+        from {
+            opacity: 0;
+            margin-left: 5px;
+        }
+        to {
+            opacity: 1;
+            margin-left: 0px;
+        }
+    }
+}
+
+.section-introduction {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    @include padding-top-bottom;
+    align-items: center;
+    flex-flow: row;
+    background-color: rgb(255, 255, 255);
+
+    &:nth-child(even){
+        background-color: $section-color-first;
+    }
+
+
+    /* --- První sekce pro popis firmy ---*/
+
+    .discription-container{
+        padding: 30px;
+
+        .discription-autmes{
+            max-width: $standart-max-width;
+
+            h1{
+                padding-bottom: 10px;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 2.1em;
+                color: $main-color-autmes;
+            }
+
+            h2{
+                font-weight: 700;
+                font-size: 1.8em;
+                padding-bottom: 10px;
+                color: $text-color-gray;
+            }
+
+            p{
+                font-weight: 300;
+                font-size: 145%;
+                color: $text-color-gray;
+            }
+        }
+    }
+
+
+    /* --- Druhá sekce pro náhled práce ---*/
+
+    &.four-parts-work{
+        padding: 30px 0 30px 0;
+
+        .image-discription{
+            text-align: center;
+            padding: 5px 30px 30px 30px;
+
+            a:hover{
+                text-decoration: none;
+
+                p{
+                    color:rgb(0, 0, 0);
+                }
+            }
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3){
+                border-right: 1px solid $border-color-light;
+            }
+
+            .image-container{
+                margin-bottom: 1rem;
+            }
+
+            .category-discription{
+                text-decoration: none;
+                max-width: 350px;
+                margin: 0 auto;
+
+                h5{
+                    margin-bottom: .5em;
+                    font-size: 1.15em;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: .05em;
+                    color: $main-color-autmes;
+                }
+
+                p{
+                    font-weight: 100;
+                    font-size: 1.1em;
+                    color: $text-color-gray;
+                }
+            }
+        }
+    }
+
+    /* --- Třetí a čtvrtá sekce větší rozšíření ---*/
+
+    .extension-container{
+        max-width: $standart-max-width;
+        @include padding-top-bottom(60px, 60px);
+
+        .image-holder{
+            padding: 0 30px;
+            margin:auto;
+
+            img{
+                @include image-shadow;
+            }
+        }
+
+        .discription-holder{
+            padding: 20px 30px 0 30px;
+
+        &:nth-child(1){
+            padding: 0 30px 20px 30px;
+            text-align: right;
+
+            a{
+                float: right;
+            }
+        }
+            h6{
+                font-weight: 700;
+                letter-spacing: .05em;
+                text-transform: uppercase;
+                font-size: 1.05em;
+                margin-bottom: .5em;
+                color: $main-color-autmes;
+            }
+
+            h2{
+                font-weight: 700;
+                letter-spacing: .05em;
+                text-transform: uppercase;
+                font-size: 1.9em;
+                margin-bottom: .5em;
+                color: $main-color-autmes;
+            }
+
+            p{
+                margin-bottom: 1.3em;
+                font-size: 1.2em;
+                color: $text-color-gray;
+            }
+
+            a{
+                @include button-more-info();
+                padding: 0.5em 1.2em;
+                letter-spacing: .03em;
+                text-transform: uppercase;
+                float:left;
+
+                &:hover{
+                    text-decoration: none;
+                    background-color: $hover-bg-color;
+                }
+            }
+        }
+    }
+
+    /* --- Páta sekce s ikonami a jednoduchým popisem ---*/
+
+    .icon-container{
+        max-width: $standart-max-width;
+
+        .icon-block{
+            padding: 15px 20px;
+
+            &:nth-child(even){
+                background-color: rgb(255, 255, 255);
+            }
+
+            .icon-image-holder{
+                width:94px;
+                max-width: 100%;
+                margin: 0 auto 1rem;
+            }
+
+            p{
+                text-align: center;
+                font-size: 1.15em;
+                margin-bottom: 1.3em;
+                color: $text-color-gray;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .section-introduction{
+        &.four-parts-work{
+            .image-discription{
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3){
+                    border-right: none;
+                }
+            }
+        }
+    }
+}
+
+

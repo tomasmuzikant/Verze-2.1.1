@@ -1,0 +1,23 @@
+.section-about-us{
+    max-width: $text-container-width;
+
+    div{
+
+        h1{
+            margin: .5em 0;
+            font-weight: 700;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color:$main-color-autmes;
+        }
+
+        p{
+            margin-bottom: 1.3em;
+            font-size: 1.1em;
+            color: $text-color-gray;
+            line-height: 1.6em;
+        }
+
+    }
+}

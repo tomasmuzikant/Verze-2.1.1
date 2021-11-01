@@ -1,0 +1,290 @@
+@import "variables";
+@import "mixins";
+
+.whole-nav-bar{
+	height: 115px;
+
+	/* ------ MOBILE NAVIGATION BAR ------*/
+
+	.mobile-nav-bar{
+		height: 80px;
+		background-color: rgba(255, 255, 255, .9);
+		z-index: 100;
+		display: none;
+
+		.company-logo{
+			padding: 0 0 0 30px;
+			margin: 12px 10px 12px 0;
+
+			img{
+				width: 215px;
+				height: 57px;
+				background-size: contain;
+			}
+		}
+
+		.nav-links{
+			top:80px;
+			background-color: rgb(255, 255, 255);
+			flex-direction: column;
+			right:-100%;
+			transition: all 0.5s ease;
+
+			li:first-child{
+				@include border-top($border-color-dark);
+			}
+
+			li{
+				list-style: none;
+				@include border-bottom($border-color-dark);
+				@include border-left($border-color-dark);
+
+				a{
+					color:$gray-non-active;
+					text-decoration: none;
+					letter-spacing: 0.06em;
+					font-weight: 700;
+					text-transform: uppercase;
+					font-size: .9em;
+					display: inline-block;
+					padding: 0px 20px 0px 20px;
+					line-height: 52px;
+				}
+				.active-mobile-page{
+					color: $dark-active;
+				}
+			}
+		}
+
+	}
+
+	/* ------ UPPER NAVIGATION BAR FOR PC ------*/
+
+	.upper-nav-container{
+		background-color: $main-color-autmes;
+		min-height: 30px;
+
+		.upper-nav-bar{
+			max-width: $standart-max-width;
+			padding: 0 15px 0 15px;
+			margin: auto;
+
+			ul{
+				float: right;
+				display: flex;
+				margin-left:auto;
+
+				li{
+					list-style: none;
+
+					a{
+						height: 30px;
+						line-height: 30px;
+						padding: 0 10px;
+						color:rgb(255, 255, 255);
+						text-decoration: none;
+						display: inline-block;
+						letter-spacing: 0.02em;
+						position: relative;
+						font-weight: 300;
+						font-size: .9em;
+
+						&:hover{
+							background-color: rgb(255, 255, 255);
+							color:rgb(0, 0, 0);
+							transition: all .5s;
+						}
+
+						&::after{
+							content: "";
+							position: absolute;
+							width:100%;
+							height: 3px;
+							background-color: $main-color-autmes;
+							left:0;
+							transform: scaleX(0);
+							transition: all .5s;
+						}
+
+						&:hover::before,
+						&:hover::after{
+							transform: scaleX(1);
+						}
+					}
+
+					.flag-language a{
+						padding: 0 5px;
+
+						&:hover{
+							background-color: $main-color-autmes;
+						}
+					}
+				}
+
+				.separator-white{
+					height:30px;
+					@include border-left(rgb(255, 255, 255));
+					vertical-align: middle;
+					margin:0 7.5px;
+				}
+			}
+		}
+	}
+
+	/* ------ lOWER NAVIGATION BAR FOR PC ------*/
+
+	.lower-nav-container{
+		width: 100%;
+		min-height: 85px;
+		background-color: rgb(255, 255, 255);
+
+		.lower-nav-bar{
+			max-width: $standart-max-width + 10px;
+			padding: 0 15px 0 5px;
+			margin:auto;
+
+			.company-logo{
+				margin:16px 10px 13px 0px;
+			}
+
+			.lower-nav-ul{
+				float: right;
+				display: flex;
+				margin-left:auto;
+				margin-bottom: 0;
+
+				li{
+					list-style: none;
+
+					a{
+						line-height: 85px;
+						padding: 0 15px;
+						color: $gray-non-active;
+						text-decoration: none;
+						display: block;
+						position: relative;
+						letter-spacing: .06em;
+						text-transform: uppercase;
+						font-weight: 700;
+						font-size: 1.07em;
+						margin-top: 5px;
+
+						&:hover{
+							color: rgb(0, 0, 0);
+							transition: all .3s ease;
+						}
+
+						i{
+							padding-left: 5px;
+						}
+					}
+
+					.separator::after{
+						content: "";
+						position: absolute;
+						top:35px;
+						width: 1px;
+						@include border-left($border-color-dark);
+						right:0;
+						height: 15px;
+					}
+
+					ul{
+						display:none;
+						position:absolute;
+						z-index: 10;
+						background-color: rgb(255, 255, 255);
+						top: 65px;
+						border-radius:2px;
+						box-shadow:0 0 5px rgba(0, 0, 0, .15);
+
+						a{
+							line-height: 30px;
+						}
+					}
+
+					&:hover ul{
+						display:block;
+						animation:fadeInRight .3s ease;
+						-webkit-animation:fadeInRight .3s ease;
+					}
+				}
+			}
+		}
+	}
+}
+
+	/* ------ BUTTON FOR MOBILE NAVIGATION BAR ------*/
+
+.burger{
+	width: 37px;
+	height: 31px;
+	@include border-full(rgb(0, 0, 0));
+	border-radius: 3px;
+	cursor: pointer;
+	background-color: $main-color-autmes;
+	margin:25px 30px 30px 5px;
+	right: 0;
+
+	div{
+		width: 25px;
+		height: 3px;
+		background-color: rgb(255, 255, 255);
+		margin: 5px;
+		transition: all .8s ease;
+	}
+}
+
+	/* ------ AFTER CLICKING CHANGE THE LOOK OF THE BUTTON ------*/
+
+.taggle {
+	.line1{
+		transform: rotate(-45deg) translate(-5px,6px);
+	}
+ 	.line2{
+		opacity: 0;
+	}
+	.line3{
+		transform: rotate(45deg) translate(-5px,-6px);
+	}
+}
+
+	/* ------ CHANGING THE APPEARANCE OF THE NAVIGATION BAR  ------*/
+
+@media only screen and (max-width: 1270px){
+	.whole-nav-bar{
+	height: 80px;
+	}
+
+	.upper-nav-container,
+	.lower-nav-container{
+		display: none;
+	}
+
+	.whole-nav-bar .mobile-nav-bar{
+		display: block;
+	}
+
+	.whole-nav-bar .mobile-nav-bar .nav-active{
+		right:0;
+	}
+}
+
+@keyframes fadeInRight{
+    0%{
+        opacity:0;
+        transform:translate3d(100%,0,0)
+    }
+    100%{
+        opacity:1;
+        transform:none
+    }
+}
+
+.whole-nav-bar .upper-nav-bar ul li a.active-page,
+.whole-nav-bar .lower-nav-bar .lower-nav-ul li a.active-page,
+.whole-nav-bar .lower-nav-bar ul li .down li a.active-page{
+	background-color: rgb(255, 255, 255);
+	color:rgb(0, 0, 0);
+}
+

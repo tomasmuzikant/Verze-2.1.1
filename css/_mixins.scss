@@ -1,0 +1,44 @@
+@mixin border-top($color:rgb(255,255,255)){
+    border-top: 1px solid $color;
+}
+@mixin border-right($color:rgb(255,255,255)){
+    border-right: 1px solid $color;
+}
+@mixin border-bottom($color:rgb(255,255,255)){
+    border-bottom: 1px solid $color;
+}
+@mixin border-left($color:rgb(255,255,255)){
+    border-left: 1px solid $color;
+}
+@mixin border-full($color:rgb(255,255,255)){
+    border: 1px solid $color;
+}
+@mixin introductory-image(){
+    background: {
+        size: cover;
+        position: center center;
+    }
+}
+@mixin padding-top-bottom($padding-top:0px, $padding-bottom:0px){
+    padding: {
+        top :$padding-top;
+        bottom: $padding-bottom;
+    }
+}
+@mixin padding-right-left($padding-right:0px, $padding-left:0px){
+    padding: {
+        right: $padding-right;
+        left: $padding-left;
+    }
+}
+@mixin button-more-info($width-button:auto,$height-button:auto,$bg-color:$main-color-autmes, $font-color: rgb(255, 255, 255),$float:right){
+    width: $width-button;
+    height: $height-button;
+    background-color: $bg-color;
+    font-size: 1em;
+    color: $font-color;
+    float: $float;
+}
+@mixin image-shadow{
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+}

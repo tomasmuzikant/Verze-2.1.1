@@ -1,0 +1,15 @@
+footer{
+    width:100%;
+    height:auto;
+    background-color: $footer-color;
+    position: relative;
+
+    div{
+        p{
+            color: rgb(255, 255, 255);
+            margin: auto;
+            text-align: center;
+            padding: 8px 10px;
+        }
+    }
+}
